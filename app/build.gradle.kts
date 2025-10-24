@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -88,6 +89,12 @@ dependencies {
     implementation(libs.datastore.preferences)
 
     implementation(libs.androidx.material.icons.extended)
+
+    //Retrofit ve moshi
+    implementation(libs.retrofit)
+
+    implementation(libs.moshi.kotlin)
+    implementation(libs.converter.moshi)
 }
 
 detekt {
