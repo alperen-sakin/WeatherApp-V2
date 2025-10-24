@@ -29,7 +29,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providerWeatherApi( moshi: Moshi): WeatherApi {
+    fun providerWeatherApi(moshi: Moshi): WeatherApi {
         return Retrofit.Builder()
             .baseUrl("https://api.open-meteo.com/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
