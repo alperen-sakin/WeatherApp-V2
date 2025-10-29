@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity() {
                         for (data in weatherInfo.weatherDataPerDay) {
                             Log.d(
                                 "deneme",
-                                "SUCCESS! Data received: ${data.key + 1}.Gun ${data.value.first().temperature}"
+                                "SUCCESS! Data received: ${data.key + 1}.Gun ${state.cityName}"
                             )
                         }
                     }
