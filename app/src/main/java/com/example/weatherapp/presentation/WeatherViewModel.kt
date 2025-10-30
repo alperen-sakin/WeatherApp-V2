@@ -31,12 +31,14 @@ class WeatherViewModel @Inject constructor(
                 when (val result = weatherRepository.getWeatherData(location.latitude, location.longitude)) {
                     is Resource.Success -> {
                         val cityName = locationTracker.getCity(location)
+                        val isDay = result.data?.currentWeatherData?.isDay ?: true
 
                         _state.value = _state.value.copy(
                             weatherInfo = result.data,
                             isLoading = false,
                             error = null,
-                            cityName = cityName
+                            cityName = cityName,
+                            isDay = isDay
 
                         )
                     }

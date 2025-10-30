@@ -9,6 +9,7 @@ data class WeatherData(
     val humidity: Double,
     val pressure: Double,
     val windSpeed: Double,
-    val weatherType: WeatherType
+    val weatherType: WeatherType,
+    val isDay: Boolean
 
 )
