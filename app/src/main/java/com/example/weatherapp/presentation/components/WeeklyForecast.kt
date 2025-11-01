@@ -29,18 +29,18 @@ import java.time.LocalDateTime
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun HourlyForecast(
+fun WeeklyForecast(
     state: WeatherState,
     modifier: Modifier = Modifier
 ) {
-    state.weatherInfo?.weatherDataPerDay?.get(0)?.let { data ->
+    state.weatherInfo?.weatherDataPerDay?.let { weeklyDataMap ->
 
         Column(
             modifier = modifier
                 .fillMaxSize()
         ) {
             Text(
-                text = stringResource(R.string.today),
+                text = stringResource(R.string.weekly_forecast),
                 fontFamily = Poppins,
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
@@ -58,18 +58,21 @@ fun HourlyForecast(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
 
             ) {
-                items(data) { weatherData ->
-                    HourlyForecastItem(
-                        weatherData = weatherData,
+                val dailyForecast = weeklyDataMap.values.toList()
+
+                items(dailyForecast) { dailyWeatherDataList ->
+                    val daySummary = dailyWeatherDataList.first()
+
+                    WeeklyForecastItem(
+                        weatherData = daySummary,
                         modifier = Modifier
                             .height(148.dp)
                             .padding(horizontal = 10.dp, vertical = 16.dp),
-                        itemColor = if (weatherData.time.hour == LocalDateTime.now().hour) {
+                        itemColor = if (daySummary.time.dayOfMonth == LocalDateTime.now().dayOfMonth) {
                             ForecastCurrentDayColor
                         } else {
                             ForecastColor
                         }
-
                     )
                 }
             }

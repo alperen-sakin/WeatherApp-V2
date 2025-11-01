@@ -28,7 +28,7 @@ import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun HourlyForecastItem(
+fun WeeklyForecastItem(
     weatherData: WeatherData,
     modifier: Modifier = Modifier,
     textColor: Color = Color.White,
@@ -36,7 +36,7 @@ fun HourlyForecastItem(
 ) {
     val formattedTime = remember(weatherData) {
         weatherData.time.format(
-            DateTimeFormatter.ofPattern("HH:mm")
+            DateTimeFormatter.ofPattern("E")
         )
     }
     Box(

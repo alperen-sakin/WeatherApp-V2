@@ -116,8 +116,8 @@ private fun SelectTab(
             state = state
         )
 
-        1 -> {
-            Text(text = "Weekly Forecast")
-        }
+        1 -> WeeklyForecast(
+            state = state
+        )
     }
 }
